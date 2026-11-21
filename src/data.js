@@ -1,0 +1,18 @@
+export const WA="923004196455";
+export const STORE="Farheesh Store";
+export const steel=['#e4e6e8','#80858c'],gold=['#f0cf94','#a9783c'];
+
+/* ====== EDIT PRODUCTS HERE. Prices (PKR) were taken from your AliExpress links — change to your selling price. ====== */
+export const PRODUCTS=[
+{id:1,brand:"Seagull",name:"Seagull 1058H Mechanical Vintage Military Watch",price:141743,old:302332,desc:"Vintage military styling with a luminous dial, sapphire crystal and 100M water resistance. A true mechanical movement.",specs:["Mechanical","Sapphire glass","100M waterproof","Luminous"],w:{style:"arabic",dial:"#23261a",mark:"#e8dfb8",metal:steel,strap:"#5b3a22",st:"leather",accent:"#c0485f",brand:"SEAGULL"}},
+{id:2,brand:"OLEVS",name:"OLEVS Skeleton Flywheel Automatic Mechanical",price:14554,old:40661,desc:"Open-heart skeleton dial with a visible flywheel, automatic movement, perpetual calendar and luminous hands.",specs:["Automatic","Skeleton dial","Perpetual calendar","Waterproof"],w:{style:"skel",dial:"#2a0d16",mark:"#e6c47a",metal:gold,strap:"#14090c",st:"leather",accent:"#e6c47a",brand:"OLEVS"}},
+{id:3,brand:"POEDAGAR",name:"POEDAGAR Sports Chronograph Luminous Quartz",price:6253,old:14323,desc:"Sporty chronograph with date, luminous hands and a durable stainless steel case. Waterproof for daily wear.",specs:["Chronograph","Date","Luminous","Waterproof"],w:{style:"chrono",dial:"#10151f",mark:"#dfe6ee",metal:steel,strap:"#161616",st:"rubber",accent:"#c0485f",brand:"POEDAGAR"}},
+{id:4,brand:"POEDAGAR",name:"POEDAGAR Original Quartz Business Date-Week",price:4990,old:12837,desc:"Refined business watch with day and date display, stainless steel bracelet and a deep burgundy dial.",specs:["Quartz","Date & week","Steel bracelet","Waterproof"],w:{style:"date",dial:"#5a1a2a",mark:"#eadfc8",metal:steel,strap:steel,st:"bracelet",accent:"#e6c47a",brand:"POEDAGAR"}},
+{id:5,brand:"OLEVS",name:"OLEVS 9910 Luxury Automatic Mechanical",price:5735,old:7259,desc:"Luxury automatic watch in gold tone with an olive dial, luminous markers and a gift box.",specs:["Automatic","Luminous","Waterproof","Gift box"],w:{style:"date",dial:"#2f3a1a",mark:"#f3e3b0",metal:gold,strap:gold,st:"bracelet",accent:"#f3e3b0",brand:"OLEVS"}},
+{id:6,brand:"OLEVS",name:"OLEVS 2870 Moon Phase Chronograph Quartz",price:13182,old:183086,desc:"Moon phase complication with steel calendar and chronograph. Large rotating-style dial in a sports luxury build.",specs:["Moon phase","Chronograph","Calendar","Steel"],w:{style:"moon",dial:"#0f1117",mark:"#eadfc8",metal:steel,strap:steel,st:"bracelet",accent:"#c0485f",brand:"OLEVS"}},
+{id:7,brand:"SMAEL",name:"SMAEL 8040 Military Sport LED Alarm Watch",price:5159,old:6574,desc:"Rugged dual-display military sport watch: shock resistant, 50M waterproof, LED, alarm and stopwatch.",specs:["Shock resistant","50M waterproof","LED & alarm","Stopwatch"],w:{style:"digital",dial:"#1a1c14",mark:"#cfd6a0",metal:['#5a5e44','#1c1e14'],strap:"#3a3f22",st:"rubber",accent:"#e08a2f",brand:"SMAEL"}},
+{id:8,brand:"OLEVS",name:"OLEVS 5885 Green Dial Steel Business Quartz",price:3499,old:7444,desc:"Green dial business watch with stainless steel strap, calendar and luminous hands. High quality everyday wear.",specs:["Quartz","Calendar","Luminous","Waterproof"],w:{style:"date",dial:"#4b5a24",mark:"#eadfc8",metal:steel,strap:steel,st:"bracelet",accent:"#eadfc8",brand:"OLEVS"}},
+];
+export const CATS=["All",...new Set(PRODUCTS.map(p=>p.brand))];
+export const rs=n=>"Rs. "+Math.round(n).toLocaleString("en-PK");
+export const off=p=>Math.round((1-p.price/p.old)*100);
