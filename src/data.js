@@ -1,4 +1,4 @@
-export const WA="923004196455";
+export const WA="923294366202";
 export const STORE="Farheesh Store";
 export const steel=['#e4e6e8','#80858c'],gold=['#f0cf94','#a9783c'];
 
