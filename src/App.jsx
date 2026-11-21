@@ -4,8 +4,117 @@ import { Watch } from "./components/Watch";
 import { Art, L, Plx, Rev, Card } from "./components/ui";
 import Checkout from "./components/Checkout";
 
+const SEO_PAGES = {
+  home: {
+    title: "Farheesh Store | Stylish & Luxury Watches in Pakistan",
+    description:
+      "Discover stylish watches at Farheesh Store. Explore Seagull, OLEVS, POEDAGAR and SMAEL watches, shop online in Pakistan, and place your order with WhatsApp confirmation and Cash on Delivery.",
+    keywords:
+      "Farheesh Store, Farheesh watches, watches in Pakistan, buy watches online Pakistan, men's watches, luxury watches, stylish watches, automatic watches, mechanical watches, quartz watches, Seagull watches, OLEVS watches, POEDAGAR watches, SMAEL watches, Cash on Delivery watches, Saad Bin Khalid, websites by Saad Bin Khalid",
+  },
+  shop: {
+    title: "Shop Watches Online in Pakistan | Farheesh Store",
+    description:
+      "Shop the Farheesh Store watch collection. Browse Seagull, OLEVS, POEDAGAR and SMAEL watches, compare styles and order online with WhatsApp confirmation and Cash on Delivery.",
+    keywords:
+      "shop watches online Pakistan, buy men's watches, Seagull watches, OLEVS watches, POEDAGAR watches, SMAEL watches, automatic watches, quartz watches, Farheesh Store",
+  },
+  about: {
+    title: "About Farheesh Store | Online Watch Store Pakistan",
+    description:
+      "Learn about Farheesh Store, an online watch store bringing carefully selected timepieces to customers in Pakistan, with WhatsApp order confirmation and Cash on Delivery.",
+    keywords:
+      "about Farheesh Store, Farheesh watch store, online watch store Pakistan, watch delivery Pakistan, Saad Bin Khalid",
+  },
+  checkout: {
+    title: "Checkout | Farheesh Store",
+    description:
+      "Complete your Farheesh Store watch order. Review your selected watches and submit your order for WhatsApp confirmation.",
+    keywords: "Farheesh Store checkout, order watches online Pakistan",
+  },
+};
+
+function setMetaTag(attribute, key, content) {
+  let element = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+  element.setAttribute("content", content);
+}
+
 export default function App() {
   const [page, setPage] = useState((location.hash || "#home").slice(1));
+
+  // Update page metadata whenever the visible hash-based section changes.
+  useEffect(() => {
+    const currentPage = SEO_PAGES[page] || SEO_PAGES.home;
+    const siteUrl = window.location.origin;
+    const canonicalUrl = `${siteUrl}/`;
+
+    document.documentElement.lang = "en";
+    document.title = currentPage.title;
+
+    setMetaTag("name", "description", currentPage.description);
+    setMetaTag("name", "keywords", currentPage.keywords);
+    setMetaTag("name", "author", "Saad Bin Khalid");
+    setMetaTag("name", "creator", "Saad Bin Khalid");
+    setMetaTag("name", "robots", "index, follow, max-image-preview:large");
+    setMetaTag("name", "googlebot", "index, follow, max-image-preview:large");
+    setMetaTag("name", "theme-color", "#12080b");
+
+    setMetaTag("property", "og:type", "website");
+    setMetaTag("property", "og:site_name", "Farheesh Store");
+    setMetaTag("property", "og:title", currentPage.title);
+    setMetaTag("property", "og:description", currentPage.description);
+    setMetaTag("property", "og:url", canonicalUrl);
+    setMetaTag("property", "og:locale", "en_PK");
+
+    setMetaTag("name", "twitter:card", "summary");
+    setMetaTag("name", "twitter:title", currentPage.title);
+    setMetaTag("name", "twitter:description", currentPage.description);
+
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl;
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${siteUrl}/#organization`,
+          name: "Farheesh Store",
+          url: canonicalUrl,
+          description:
+            "An online watch store featuring Seagull, OLEVS, POEDAGAR and SMAEL watches.",
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${siteUrl}/#website`,
+          name: "Farheesh Store",
+          url: canonicalUrl,
+          description: SEO_PAGES.home.description,
+          publisher: { "@id": `${siteUrl}/#organization` },
+          inLanguage: "en-PK",
+        },
+      ],
+    };
+
+    let jsonLd = document.getElementById("farheesh-structured-data");
+    if (!jsonLd) {
+      jsonLd = document.createElement("script");
+      jsonLd.id = "farheesh-structured-data";
+      jsonLd.type = "application/ld+json";
+      document.head.appendChild(jsonLd);
+    }
+    jsonLd.textContent = JSON.stringify(structuredData);
+  }, [page]);
   const [cart, setCart] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("cart2") || "[]");
@@ -385,7 +494,7 @@ export default function App() {
         <p className="font-serif text-3xl">
           Farheesh <span className="text-olive-300 italic">Store</span>
         </p>
-        <p className="mt-2">© 2026 {STORE}. Luxury watches.</p>
+        <p className="mt-2">© 2026 {STORE}. Stylish watches in Pakistan. <a href="https://saadbin-khalid.vercel.app" target="_blank" rel="noopener noreferrer" className="text-olive-300">Designed & Developed by Saad Bin Khalid</a> | Full Stack Engineer</p>
       </footer>
 
       {toast && (
