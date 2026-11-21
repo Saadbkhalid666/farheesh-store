@@ -2,7 +2,6 @@ export const WA="923294366202";
 export const STORE="Farheesh Store";
 export const steel=['#e4e6e8','#80858c'],gold=['#f0cf94','#a9783c'];
 
-/* ====== EDIT PRODUCTS HERE. Prices (PKR) were taken from your AliExpress links — change to your selling price. ====== */
 export const PRODUCTS=[
 {id:1,brand:"Seagull",name:"Seagull 1058H Mechanical Vintage Military Watch",price:141743,old:302332,desc:"Vintage military styling with a luminous dial, sapphire crystal and 100M water resistance. A true mechanical movement.",specs:["Mechanical","Sapphire glass","100M waterproof","Luminous"],w:{style:"arabic",dial:"#23261a",mark:"#e8dfb8",metal:steel,strap:"#5b3a22",st:"leather",accent:"#c0485f",brand:"SEAGULL"}},
 {id:2,brand:"OLEVS",name:"OLEVS Skeleton Flywheel Automatic Mechanical",price:14554,old:40661,desc:"Open-heart skeleton dial with a visible flywheel, automatic movement, perpetual calendar and luminous hands.",specs:["Automatic","Skeleton dial","Perpetual calendar","Waterproof"],w:{style:"skel",dial:"#2a0d16",mark:"#e6c47a",metal:gold,strap:"#14090c",st:"leather",accent:"#e6c47a",brand:"OLEVS"}},
